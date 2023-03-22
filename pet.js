@@ -1,14 +1,28 @@
-class Pet {
-    constructor() {
-        // set up basic stats
-        this.health = 100;
-        this.hunger = 0;
-        this.happiness = 50;
+class pet {
+    constructor(name) {
+        this.name = name;
+        this.hunger = 100;
+        this.happiness = 100;
     }
-
-    feedPet() {
-        // function to feed pet
+    eats() {
+        if (this.hunger < 60) {
+            this.hunger += 40;
+        }
+        else {
+            this.hunger = 100;
+        }
+        // can put line here to change text in the HTML saying that the pet ate
+        // for example --->  petMessage.textContent = `${this.name} ate!)`;
+        return this;
     }
-
-    // any additional functions...
+    play() {
+        if (this.happiness < 80) {
+            this.happiness += 20
+        }
+        else {
+            this.happiness = 100
+        }
+        // can put line here to change text in the HTML saying that the pet played
+        return this;
+    }
 }
