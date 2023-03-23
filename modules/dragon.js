@@ -2,10 +2,10 @@
 import Pet from "./pet.js";
 
 export default class Dragon extends Pet {
+    this.greed = 0;
+    this.anger = 0;
     constructor(name) {
         super(name);
-        this.greed = 0;
-        this.anger = 0;
     }
     
     update() {
