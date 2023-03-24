@@ -26,4 +26,14 @@ export default class Rock extends Pet {
     polish() {
         this.moss = 0;
     }
+    
+        
+    sleep() {
+        if (sleep == 1) {
+            document.getElementById("pet-image").src="../images/rock_sleep.png";
+        }
+        if (sleep == 0) {
+            document.getElementById("pet-image").src="../images/rock.png";
+        }
+    }
 }
