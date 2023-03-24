@@ -2,7 +2,7 @@
 import Pet from "./pet.js";
 
 export default class Dragon extends Pet {
-    wakeImg = "../images/dragon.png"
+    defaultImg = "../images/dragon.png"
     sleepImg = "../images/dragon_sleep.png"
     greed = 0;
     anger = 0;
