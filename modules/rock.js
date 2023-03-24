@@ -2,7 +2,7 @@
 import Pet from "./pet.js";
 
 export default class Rock extends Pet {
-    wakeImg = "../images/rock.png"
+    defaultImg = "../images/rock.png"
     sleepImg = "../images/rock_sleep.png"
     moss = 0;
     constructor(name) {
