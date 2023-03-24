@@ -42,4 +42,13 @@ export default class Dragon extends Pet {
         // can put line here to change text in the HTML saying that the pet was cleaned
         return this;
     }
+        
+    sleep() {
+        if (sleep == 1) {
+            document.getElementById("pet-image").src="../images/dragon_sleep.png";
+        }
+        if (sleep == 0) {
+            document.getElementById("pet-image").src="../images/dragon.png";
+        }
+    }
 }
