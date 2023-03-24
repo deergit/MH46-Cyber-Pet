@@ -1,5 +1,6 @@
 export default class Pet {
-    
+    defaultImg = "";
+    sleepImg = "";
     asleep = false;
     health = 100;
     hunger = 0;
@@ -72,7 +73,7 @@ export default class Pet {
         setTimeout(() => {
             this.energy = 100;
             this.asleep = false;
-            document.getElementById("pet-image").src=wakeImg;
+            document.getElementById("pet-image").src=defaultImg;
         }, (Math.floor((Math.random() * 30000) + 60000)));
     }
 
