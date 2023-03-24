@@ -2,7 +2,7 @@
 import Pet from "./pet.js";
 
 export default class Cat extends Pet {
-    wakeImg = "../images/cat.png"
+    defaultImg = "../images/cat.png"
     sleepImg = "../images/cat_sleep.png"
     huntDesire = 0;
     constructor(name) {
