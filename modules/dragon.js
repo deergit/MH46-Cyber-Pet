@@ -2,42 +2,41 @@
 import Pet from "./pet.js";
 
 export default class Dragon extends Pet {
-    greed = 0;
-    anger = 0;
+    greed = {max: 100, value: 0};
+    anger = {max: 100, value: 0};
 
     constructor(name, petType) {
         super(name, petType);
     }
 
     petUpdate() {
-        console.log("dragonupdate");
+        (this.greed.value < 100) ? this.greed.value += 5 : this.health.value -= 10;
+        (this.anger.value < 100) ? this.anger.value += 5 : this.health.value -= 10;
     }
 
     hunt() {
         greedRoll = Math.floor(Math.random() * 20) + 1;
         this.greed += greedRoll;
-        if (this.anger > 10) {
-            this.anger -= 10;
+        if (this.anger.value > 10) {
+            this.anger.value -= 10;
         }
         else {
-            this.anger = 0;
+            this.anger.value = 0;
         }
     }
 
-    play() {
-        if (this.happiness < 80) {
-            this.happiness += 20;
+    pay() {
+        if (this.happiness.value < 80) {
+            this.happiness.value += 20;
         }
         else {
-            this.happiness = 100;
+            this.happiness.value = 100;
         }
-        if (this.anger > 10) {
-            this.anger -= 10;
+        if (this.greed.value > 10) {
+            this.greed.value -= 10;
         }
         else {
-            this.anger = 0;
+            this.greed.value = 0;
         }
-        // can put line here to change text in the HTML saying that the pet was cleaned
-        return this;
     }
 }
