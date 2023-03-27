@@ -2,44 +2,24 @@
 import Pet from "./pet.js";
 
 export default class Cat extends Pet {
-    huntDesire = 0;
+    huntDesire = {max: 100, value: 0};
 
     constructor(name, petType) {
         super(name, petType);
     }
 
     petUpdate() {
-        console.log("catting");
+        (this.huntDesire.value < 100) ? this.hunger.value += 5 : this.health.value -= 10;
     }
 
     hunt() {
-        if (this.huntDesire > 70) {
-            this.diceRoll = Math.floor(Math.random() * 3) + 1;
-            if (this.diceRoll == 3) {
-                // petMessage.textContent = `${this.name} caught a rat!)`;
-                hygiene -= 30;
-            }
-            else {
-                // petMessage.textContent = `${this.name} didn't catch anything...)`;
-            }
-        }
-        return this;
-    }
-
-    play() {
-        if (this.happiness < 80) {
-            this.happiness += 20;
+        this.diceRoll = Math.floor(Math.random() * 3) + 1;
+        if (this.diceRoll == 3) {
+            document.getElementById('pet-speech').textContent = `${this.name} caught a rat!`;
+            this.hygiene.value -= 30;
         }
         else {
-            this.happiness = 100;
+            document.getElementById('pet-speech').textContent = `${this.name} didn't catch anything...`;
         }
-        if (this.anger > 10) {
-            this.anger -= 10;
-        }
-        else {
-            this.anger = 0;
-        }
-        // can put line here to change text in the HTML saying that the pet was cleaned
-        return this;
     }
 }
