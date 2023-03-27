@@ -2,10 +2,10 @@ export default class Pet {
     asleep = false;
     health = {max: 100, value: 100};
     hunger = {max: 100, value: 0};
-    happiness = 50;
+    happiness = {max: 100, value: 50};
+    energy = {max: 100, value: 100};
+    hygiene = {max: 100, value: 100};
     bond = 0;
-    energy = 100;
-    hygiene = 100;
     poop = 0;
     recentlyAte = false;
     petType = "";
