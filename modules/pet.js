@@ -5,7 +5,7 @@ export default class Pet {
     happiness = {max: 100, value: 50};
     energy = {max: 100, value: 100};
     hygiene = {max: 100, value: 100};
-    bond = 0;
+    bond = {max: 100, value: 0};
     poop = 0;
     recentlyAte = false;
     petType = "";
