@@ -173,3 +173,19 @@ body, html
     background-color: orange;
     color: red;
 }
+
+.action-button
+{
+    background-color: lightgreen;
+    border: solid 2px green;
+    color: green;
+    width: 4vw;
+    margin: 0.3vw;
+    cursor: pointer;
+}
+.action-button:hover
+{
+    background-color: green;
+    border-color: lightgreen;
+    color: lightgreen;
+}
