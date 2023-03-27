@@ -18,7 +18,7 @@ export default class Pet {
     bondMod = 1;
     energyMod = 1;
     hygieneMod = 1;
-    
+
 
     recentlyAte = false;
     poop = false;
@@ -26,52 +26,27 @@ export default class Pet {
     constructor(name, petType) {
         this.name = name;
         this.petType = petType;
+        document.getElementById('pet-status-name').textContent = this.name;
     }
 
     update() {
-        /* if (this.hunger > 80 || this.hygiene < 20 || this.happiness < 20) {
-            this.health -= 10;
-        }
-
-        if (this.asleep === true) {
-            this.hunger += (0.5 * this.hungerMod);
-        } else {
-            this.energy -= (1 * this.energyMod);
-            this.hunger += (1 * this.hungerMod);
-        }
-
-        if (this.energy === 0) {
-            this.#sleep();
-        }
-
-        this.hygene -= (1 * (this.hygieneMod * this.poop));
-        this.happinessCalc = 1 / this.hunger;
-        this.happinessCalc = this.happinessCalc * 100;
-        this.happiness -= (this.happinessCalc * this.happinessMod); */
-        
-        document.getElementById('pet-status-name').textContent = this.name;
-        
         // Update the status bar
-        
-        (this.hunger.value < 100) ? this.hunger.value += 5 : this.health.value -= 10;
-        (this.hygene.value > 0) ? this.hygene.value -= 5 : this.health.value -= 10;
-        (this.energy.value > 0) ? this.energy.value -= 1 : this.sleep();
-        (this.bond.value < 100) ? this.bond.value += 1 : this.bond.value = 100;
-        (this.happiness.value > 0) ? this.happiness.value -= 1 : this.health.value -= 10;
+
+        (this.hunger.value < 100) ? this.hunger.value += (1 * this.hungerMod) : this.health.value -= 10;
+        (this.hygiene.value > 0) ? this.hygiene.value -= (1 * this.hygieneMod * this.poop) : this.health.value -= 5;
+        (this.energy.value > 0) ? this.energy.value -= 1 : this.#sleep();
+        (this.happiness.value > 0) ? this.happiness.value -= (1 * this.happinessMod) : this.health.value -= 1;
 
         if (this.health.value === 0) {
-            this.kill();
+            this.#kill();
         }
-        
-        this.status(this.health.value, this.health.max, 'pet-health');
-        this.status(this.hunger.value, this.hunger.max, 'pet-hunger');
-        
+
         if (this.recentlyAte = true) {
             this.recentlyAte = false;
-            this.defecate();
+            this.#defecate();
         }
-        
-        
+
+        this.#statusUpdate();
         this.petUpdate();
     }
 
@@ -116,19 +91,24 @@ export default class Pet {
         }, (Math.floor((Math.random() * 20000) + 20000)));
 
     }
-    
+
     #kill() {
         alert(`${this.name} died :(`);
-        homeScreen.hidden = false;
-        petScreen.hidden = true;
-        petActions.innerHTML = "";
+        document.getElementById("home").hidden = false;
+        document.getElementById("pet").hidden = true;
+        document.getElementById("pet-actions").innerHTML = "";
         delete gameState.pet;
         clearInterval(ticker);
     }
 
-    status(value, max, name) {
+    #status(value, max, name) {
         const bar = document.getElementById(name);
         bar.style.width = `${(value / max * 100)}%`;
         bar.innerText = `${Math.ceil((value / max) * 100)}%`;
+    }
+
+    #statusUpdate() {
+        this.#status(this.health.value, this.health.max, 'pet-health');
+        this.#status(this.hunger.value, this.hunger.max, 'pet-hunger');
     }
 }

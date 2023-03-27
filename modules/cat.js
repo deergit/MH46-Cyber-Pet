@@ -4,8 +4,18 @@ import Pet from "./pet.js";
 export default class Cat extends Pet {
     huntDesire = 0;
 
+    hungerMod = 1.5;
+    happinessMod = 2;
+    bondMod = 1;
+    energyMod = 3;
+    hygieneMod = 0.75;
+
+    defaultImg = "../images/cat.png";
+    sleepImg = "../images/cat-sleeping.png";
+
     constructor(name, petType) {
         super(name, petType);
+        document.getElementById('pet-status-name').textContent = this.name;
     }
 
     petUpdate() {
@@ -23,23 +33,5 @@ export default class Cat extends Pet {
                 // petMessage.textContent = `${this.name} didn't catch anything...)`;
             }
         }
-        return this;
-    }
-
-    play() {
-        if (this.happiness < 80) {
-            this.happiness += 20;
-        }
-        else {
-            this.happiness = 100;
-        }
-        if (this.anger > 10) {
-            this.anger -= 10;
-        }
-        else {
-            this.anger = 0;
-        }
-        // can put line here to change text in the HTML saying that the pet was cleaned
-        return this;
     }
 }

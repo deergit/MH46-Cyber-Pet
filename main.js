@@ -19,7 +19,7 @@ const petActions = document.getElementById("pet-actions");
 let petSelection = "";
 const ignoreFuncs = ["constructor", "update", "petUpdate", "toString", "toLocaleString", "valueOf", "hasOwnProperty", "isPrototypeOf", "propertyIsEnumerable", "__defineGetter__", "__defineSetter__", "__lookupGetter__", "__lookupSetter__"];
 
-const tickLength = 1000;
+const tickLength = 10000;
 let ticker;
 
 homeScreen.hidden = false;
@@ -70,6 +70,7 @@ const gameState = {
         });
 
         ticker = setInterval(() => this.tick(), tickLength);
+        this.tick();
     },
 
     tick () {
