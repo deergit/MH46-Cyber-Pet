@@ -19,22 +19,22 @@ export default class Rock extends Pet {
     }
 
     petUpdate() {
-        this.moss += 1;
+        this.moss.value += 1;
         console.log("petupdate");
     }
 
     play() {
-        if (this.happiness < 80) {
-            this.happiness += 20;
+        if (this.happiness.value < 80) {
+            this.happiness.value += 20;
         }
         else {
-            this.happiness = 100;
+            this.happiness.value = 100;
         }
-        this.moss += 10;
+        this.moss.value += 10;
         // can put line here to change text in the HTML saying that the pet was cleaned
     }
 
     polish() {
-        this.moss = 0;
+        this.moss.value = 0;
     }
 }

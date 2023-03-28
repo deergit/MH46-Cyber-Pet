@@ -20,15 +20,15 @@ export default class Cat extends Pet {
     }
 
     petUpdate() {
-        console.log("catting");
+        this.huntDesire.value = Math.max(this.huntDesire.value += (Math.random() * 3), 100);
     }
 
     hunt() {
-        if (this.huntDesire > 70) {
+        if (this.huntDesire.value > 70) {
             this.diceRoll = Math.floor(Math.random() * 3) + 1;
             if (this.diceRoll == 3) {
                 // petMessage.textContent = `${this.name} caught a rat!)`;
-                hygiene -= 30;
+                this.hygiene.value -= 30;
             }
             else {
                 // petMessage.textContent = `${this.name} didn't catch anything...)`;
