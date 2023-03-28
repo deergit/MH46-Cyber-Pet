@@ -5,7 +5,7 @@ export default class Pet {
     happiness = {max: 100, value: 50};
     energy = {max: 100, value: 100};
     hygiene = {max: 100, value: 100};
-    bond = 0;
+    bond = {max: 100, value: 0};
     poop = 0;
     recentlyAte = false;
     petType = "";
@@ -62,12 +62,12 @@ export default class Pet {
 
     play() {
         document.getElementById('pet-speech').textContent = `${this.name} played around!`;
-        (this.happiness < 80) ? this.happiness += 20 : this.happiness = 100;
+        (this.happiness.value < 80) ? this.happiness.value += 20 : this.happiness.value = 100;
     }
 
     clean() {
         document.getElementById('pet-speech').textContent = `${this.name} had a bath!`;
-        this.hygiene = 100;
+        this.hygiene.value = 100;
         this.poop = 0;
     }
 
@@ -76,7 +76,7 @@ export default class Pet {
         this.asleep = true;
         document.getElementById("pet-image").src = this.sleepImg;
         setTimeout(() => {
-            this.energy = 100;
+            this.energy.value = 100;
             this.asleep = false;
             document.getElementById("pet-image").src = this.defaultImg;
         }, (Math.floor((Math.random() * 30000) + 60000)));
