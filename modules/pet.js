@@ -37,7 +37,7 @@ export default class Pet {
         (this.energy.value > 0) ? this.energy.value -= 1 : this.#sleep();
         (this.happiness.value > 0) ? this.happiness.value -= (1 * this.happinessMod) : this.health.value -= 1;
 
-        if (this.health.value === 0) {
+        if (this.health.value < 0) {
             this.#kill();
         }
 
