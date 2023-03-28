@@ -2,7 +2,7 @@
 import Pet from "./pet.js";
 
 export default class Cat extends Pet {
-    huntDesire = 0;
+    huntDesire = {max: 100, value: 0};
 
     hungerMod = 1.5;
     happinessMod = 2;
@@ -16,6 +16,7 @@ export default class Cat extends Pet {
     constructor(name, petType) {
         super(name, petType);
         document.getElementById('pet-status-name').textContent = this.name;
+        document.getElementById('pet-image').src = this.defaultImg;
     }
 
     petUpdate() {

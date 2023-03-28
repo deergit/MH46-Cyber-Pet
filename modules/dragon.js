@@ -5,8 +5,18 @@ export default class Dragon extends Pet {
     greed = {max: 100, value: 0};
     anger = {max: 100, value: 0};
 
+    hungerMod = 1;
+    happinessMod = 1;
+    bondMod = 1;
+    energyMod = 1;
+    hygieneMod = 1;
+
+    defaultImg = "../images/dragon.png";
+    sleepImg = "../images/dragon-sleeping.png";
+
     constructor(name, petType) {
         super(name, petType);
+        document.getElementById('pet-image').src = this.defaultImg;
     }
 
     petUpdate() {

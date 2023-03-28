@@ -2,10 +2,20 @@
 import Pet from "./pet.js";
 
 export default class Rock extends Pet {
-    moss = 0;
+    moss = {max: 100, value: 0};
+
+    hungerMod = 1;
+    happinessMod = 1;
+    bondMod = 1;
+    energyMod = 1;
+    hygieneMod = 1;
+
+    defaultImg = "../images/rock.png";
+    sleepImg = "../images/rock-sleeping.png";
 
     constructor(name, petType) {
         super(name, petType);
+        document.getElementById('pet-image').src = this.defaultImg;
     }
 
     petUpdate() {
