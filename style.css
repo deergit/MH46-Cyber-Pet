@@ -98,6 +98,37 @@ body, html
     flex-direction: row;
 }
 
+.pet-speech-box
+{
+    height:17vh;
+}
+
+.pet-speech
+{
+    background-color: white;
+    border-radius: 0.5vw;
+    font-family: comic sans ms;
+    font-size: 6vh;
+    color: green;
+    text-align: center;
+    text-shadow: 2px 2px lightgreen;
+    height: 10vh;
+    width: 60vw;
+}
+.pet-speech:before 
+{
+  content: "";
+  width: 0px;
+  height: 0px;
+  position: absolute;
+  border-left: 24px solid #fff;
+  border-right: 12px solid transparent;
+  border-top: 12px solid #fff;
+  border-bottom: 20px solid transparent;
+  margin-top: 10vh;
+  left: 22vw;
+}
+
 .pet-image-holder
 {
     border: solid 2px black;
@@ -117,9 +148,25 @@ body, html
 	background-color: transparent;
 	border: none;
 	font-family: verdana;
-	font-size: 3vh;
-	color: lightgreen;
-	text-shadow: -2px -2px green;
+	font-size: 5vh;
+	color: green;
+	text-shadow: -2px -2px lightgreen;
+	padding:0.5vw;
+}
+
+.pet-bar-box
+{
+	display:flex;
+}
+
+.pet-bar-label
+{
+	justify-content:left;
+	color:darkgreen;
+	font-family:verdana;
+	font-size:4vh;
+	width:8vw;
+	padding-left:0.5vw;
 }
 
 .pet-status
